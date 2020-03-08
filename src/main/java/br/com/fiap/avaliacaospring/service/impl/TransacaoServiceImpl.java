@@ -7,7 +7,14 @@ import br.com.fiap.avaliacaospring.repository.AlunoRepository;
 import br.com.fiap.avaliacaospring.repository.TransacaoRepository;
 import br.com.fiap.avaliacaospring.service.TransacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.Optional.ofNullable;
 
 @Service
 public class TransacaoServiceImpl implements TransacaoService {
@@ -28,4 +35,26 @@ public class TransacaoServiceImpl implements TransacaoService {
 
         return new TransacaoDTO(repository.save(entity));
     }
+
+    @Override
+    public TransacaoDTO update(Integer id, CreateTransacaoDTO createTransacaoDTO) {
+        Transacao entity = repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        entity.setDataHora(ofNullable(createTransacaoDTO.getDataHora()).orElse(entity.getDataHora()));
+        entity.setDescricao(ofNullable(createTransacaoDTO.getDescricao()).orElse(entity.getDescricao()));
+        entity.setValor(ofNullable(createTransacaoDTO.getValor()).orElse(entity.getValor()));
+
+        return new TransacaoDTO(repository.save(entity));
+    }
+
+    @Override
+    public void delete(Integer id) {
+        repository.deleteById(id);
+    }
+
+    @Override
+    public List<TransacaoDTO> list(Integer alunoId) {
+        return repository.findByAlunoId(alunoId).stream().map(TransacaoDTO::new).collect(Collectors.toList());
+    }
+
+
 }
