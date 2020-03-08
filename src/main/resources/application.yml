@@ -7,3 +7,5 @@ spring:
     hibernate:
       ddl-auto: create
     show-sql: true
+file:
+  path: classpath:alunos_carga_inicial.txt

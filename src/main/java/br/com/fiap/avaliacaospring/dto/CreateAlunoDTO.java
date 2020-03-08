@@ -8,6 +8,15 @@ public class CreateAlunoDTO {
 
     private String turma;
 
+    public CreateAlunoDTO() {
+    }
+
+    public CreateAlunoDTO(String nome, String rm, String turma) {
+        this.nome = nome;
+        this.rm = rm;
+        this.turma = turma;
+    }
+
     public String getNome() {
         return nome;
     }
