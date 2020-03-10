@@ -13,10 +13,14 @@ public class AlunoDTO {
     private String turma;
 
     public AlunoDTO(Aluno entity) {
-        this.id = entity.getId();
-        this.nome = entity.getNome();
-        this.rm = entity.getRm();
-        this.turma = entity.getTurma();
+        this(entity.getId(), entity.getNome(), entity.getRm(), entity.getTurma());
+    }
+
+    public AlunoDTO(Integer id, String nome, String rm, String turma) {
+        this.id = id;
+        this.nome = nome;
+        this.rm = rm;
+        this.turma = turma;
     }
 
     public String getNome() {

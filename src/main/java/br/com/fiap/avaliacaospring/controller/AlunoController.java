@@ -22,13 +22,13 @@ public class AlunoController {
         return alunoService.create(createAlunoDTO);
     }
 
-    @PutMapping
+    @PutMapping("{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public AlunoDTO update(@PathVariable Integer id, @RequestBody CreateAlunoDTO createAlunoDTO) {
         return alunoService.update(id, createAlunoDTO);
     }
 
-    @DeleteMapping
+    @DeleteMapping("{id}")
     public void delete(@PathVariable Integer id) {
         alunoService.delete(id);
     }

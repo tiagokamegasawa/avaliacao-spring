@@ -22,13 +22,13 @@ public class TransacaoController {
         return transacaoService.create(createTransacaoDTO);
     }
 
-    @PutMapping
+    @PutMapping("{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public TransacaoDTO update(@PathVariable Integer id, @RequestBody CreateTransacaoDTO createTransacaoDTO) {
         return transacaoService.update(id, createTransacaoDTO);
     }
 
-    @DeleteMapping
+    @DeleteMapping("{id}")
     public void delete(@PathVariable Integer id) {
         transacaoService.delete(id);
     }

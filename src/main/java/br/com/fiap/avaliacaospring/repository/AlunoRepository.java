@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface AlunoRepository extends JpaRepository<Aluno, Integer> {
 
-    @Query("SELECT new AlunoDTO(a.nome, a.rm, a.turma) from Aluno a")
+    @Query("SELECT new br.com.fiap.avaliacaospring.dto.AlunoDTO(a.id, a.nome, a.rm, a.turma) from Aluno a")
     List<AlunoDTO> findAllDTO();
 
 }
