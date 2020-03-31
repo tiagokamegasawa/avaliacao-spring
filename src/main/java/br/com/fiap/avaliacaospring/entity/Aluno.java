@@ -1,6 +1,7 @@
 package br.com.fiap.avaliacaospring.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "ALUNO")
@@ -18,6 +19,9 @@ public class Aluno {
 
     @Column
     private String turma;
+
+    @OneToMany(mappedBy = "aluno")
+    private List<CartaoCredito> cartoes;
 
     public String getNome() {
         return nome;
@@ -50,4 +54,13 @@ public class Aluno {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public List<CartaoCredito> getCartoes() {
+        return cartoes;
+    }
+
+    public void setCartoes(List<CartaoCredito> cartoes) {
+        this.cartoes = cartoes;
+    }
+
 }

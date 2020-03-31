@@ -4,6 +4,7 @@ import br.com.fiap.avaliacaospring.dto.CreateTransacaoDTO;
 import br.com.fiap.avaliacaospring.dto.TransacaoDTO;
 import br.com.fiap.avaliacaospring.entity.Transacao;
 import br.com.fiap.avaliacaospring.repository.AlunoRepository;
+import br.com.fiap.avaliacaospring.repository.CartaoCreditoRepository;
 import br.com.fiap.avaliacaospring.repository.TransacaoRepository;
 import br.com.fiap.avaliacaospring.service.TransacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +24,15 @@ public class TransacaoServiceImpl implements TransacaoService {
     private TransacaoRepository repository;
 
     @Autowired
+    private CartaoCreditoRepository cartaoRepository;
+
+    @Autowired
     private AlunoRepository alunoRepository;
 
     @Override
     public TransacaoDTO create(CreateTransacaoDTO createTransacaoDTO) {
         Transacao entity = new Transacao();
-        entity.setAluno(alunoRepository.getOne(createTransacaoDTO.getIdAluno()));
+        entity.setCartao(cartaoRepository.getOne(createTransacaoDTO.getIdCartao()));
         entity.setDataHora(createTransacaoDTO.getDataHora());
         entity.setDescricao(createTransacaoDTO.getDescricao());
         entity.setValor(createTransacaoDTO.getValor());
@@ -53,7 +57,10 @@ public class TransacaoServiceImpl implements TransacaoService {
 
     @Override
     public List<TransacaoDTO> list(Integer alunoId) {
-        return repository.findByAlunoId(alunoId).stream().map(TransacaoDTO::new).collect(Collectors.toList());
+        return cartaoRepository.findByAlunoId(alunoId).stream()
+                .flatMap(c -> c.getTransacoes().stream())
+                .map(TransacaoDTO::new)
+                .collect(Collectors.toList());
     }
 
 

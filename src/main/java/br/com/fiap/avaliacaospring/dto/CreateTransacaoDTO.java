@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public class CreateTransacaoDTO {
 
-    private Integer idAluno;
+    private Integer idCartao;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dataHora;
@@ -15,12 +15,12 @@ public class CreateTransacaoDTO {
 
     private String descricao;
 
-    public Integer getIdAluno() {
-        return idAluno;
+    public Integer getIdCartao() {
+        return idCartao;
     }
 
-    public void setIdAluno(Integer idAluno) {
-        this.idAluno = idAluno;
+    public void setIdCartao(Integer idCartao) {
+        this.idCartao = idCartao;
     }
 
     public LocalDateTime getDataHora() {

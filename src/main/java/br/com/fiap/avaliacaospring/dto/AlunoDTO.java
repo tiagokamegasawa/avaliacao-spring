@@ -2,6 +2,9 @@ package br.com.fiap.avaliacaospring.dto;
 
 import br.com.fiap.avaliacaospring.entity.Aluno;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AlunoDTO {
 
     private Integer id;
@@ -11,6 +14,8 @@ public class AlunoDTO {
     private String rm;
 
     private String turma;
+
+    private List<CartaoCreditoDTO> cartoes = new ArrayList<>();
 
     public AlunoDTO(Aluno entity) {
         this(entity.getId(), entity.getNome(), entity.getRm(), entity.getTurma());

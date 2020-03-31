@@ -8,7 +8,7 @@ public class TransacaoDTO {
 
     private Integer id;
 
-    private Integer idAluno;
+    private Integer idCartaoCredito;
 
     private LocalDateTime dataHora;
 
@@ -18,7 +18,7 @@ public class TransacaoDTO {
 
     public TransacaoDTO(Transacao entity) {
         this.id = entity.getId();
-        this.idAluno = entity.getAluno().getId();
+        this.idCartaoCredito = entity.getCartao().getId();
         this.dataHora = entity.getDataHora();
         this.valor = entity.getValor();
         this.descricao = entity.getDescricao();
@@ -32,12 +32,12 @@ public class TransacaoDTO {
         this.id = id;
     }
 
-    public Integer getIdAluno() {
-        return idAluno;
+    public Integer getIdCartaoCredito() {
+        return idCartaoCredito;
     }
 
-    public void setIdAluno(Integer idAluno) {
-        this.idAluno = idAluno;
+    public void setIdCartaoCredito(Integer idCartaoCredito) {
+        this.idCartaoCredito = idCartaoCredito;
     }
 
     public LocalDateTime getDataHora() {

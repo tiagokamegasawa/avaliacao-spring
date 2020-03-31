@@ -12,7 +12,7 @@ public class Transacao {
     private Integer id;
 
     @ManyToOne
-    private Aluno aluno;
+    private CartaoCredito cartao;
 
     @Column
     private LocalDateTime dataHora;
@@ -31,12 +31,12 @@ public class Transacao {
         this.id = id;
     }
 
-    public Aluno getAluno() {
-        return aluno;
+    public CartaoCredito getCartao() {
+        return cartao;
     }
 
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
+    public void setCartao(CartaoCredito cartao) {
+        this.cartao = cartao;
     }
 
     public LocalDateTime getDataHora() {
