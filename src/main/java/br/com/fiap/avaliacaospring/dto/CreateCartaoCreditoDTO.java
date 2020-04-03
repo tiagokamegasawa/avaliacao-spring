@@ -2,6 +2,8 @@ package br.com.fiap.avaliacaospring.dto;
 
 public class CreateCartaoCreditoDTO {
 
+    private String ultimosDigitos;
+
     public String getUltimosDigitos() {
         return ultimosDigitos;
     }
@@ -9,7 +11,5 @@ public class CreateCartaoCreditoDTO {
     public void setUltimosDigitos(String ultimosDigitos) {
         this.ultimosDigitos = ultimosDigitos;
     }
-
-    private String ultimosDigitos;
 
 }

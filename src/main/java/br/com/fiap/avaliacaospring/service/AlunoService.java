@@ -3,6 +3,7 @@ package br.com.fiap.avaliacaospring.service;
 import br.com.fiap.avaliacaospring.dto.AlunoDTO;
 import br.com.fiap.avaliacaospring.dto.CreateAlunoDTO;
 import br.com.fiap.avaliacaospring.dto.CreateCartaoCreditoDTO;
+import br.com.fiap.avaliacaospring.dto.ExtratoAlunoDTO;
 
 import java.util.List;
 
@@ -18,4 +19,5 @@ public interface AlunoService {
 
     List<AlunoDTO> list();
 
+    ExtratoAlunoDTO extrato(Integer id);
 }

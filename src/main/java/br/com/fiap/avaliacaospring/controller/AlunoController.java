@@ -3,6 +3,7 @@ package br.com.fiap.avaliacaospring.controller;
 import br.com.fiap.avaliacaospring.dto.AlunoDTO;
 import br.com.fiap.avaliacaospring.dto.CreateAlunoDTO;
 import br.com.fiap.avaliacaospring.dto.CreateCartaoCreditoDTO;
+import br.com.fiap.avaliacaospring.dto.ExtratoAlunoDTO;
 import br.com.fiap.avaliacaospring.service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,7 +38,6 @@ public class AlunoController {
 
     @DeleteMapping("{id}")
     public void delete(@PathVariable Integer id) {
-
         alunoService.delete(id);
     }
 
@@ -46,4 +46,8 @@ public class AlunoController {
         return alunoService.list();
     }
 
+    @GetMapping("{id}/extrato")
+    public ExtratoAlunoDTO extrato(@PathVariable Integer id) {
+        return this.alunoService.extrato(id);
+    }
 }

@@ -1,6 +1,7 @@
 package br.com.fiap.avaliacaospring.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,12 +16,16 @@ public class CartaoCredito {
     private String ultimosDigitos;
 
     @OneToMany(mappedBy = "cartao")
-    private List<Transacao> transacoes;
+    private List<Transacao> transacoes = new ArrayList<>();
 
     @ManyToOne
     private Aluno aluno;
 
     public CartaoCredito() {
+    }
+
+    public CartaoCredito(Integer id) {
+        this.id = id;
     }
 
     public CartaoCredito(String ultimosDigitos) {

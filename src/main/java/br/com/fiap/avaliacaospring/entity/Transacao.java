@@ -23,6 +23,15 @@ public class Transacao {
     @Column
     private String descricao;
 
+    public Transacao() {
+    }
+
+    public Transacao(CartaoCredito cartao, LocalDateTime dataHora, Double valor, String descricao) {
+        this.cartao = cartao;
+        this.dataHora = dataHora;
+        this.valor = valor;
+        this.descricao = descricao;
+    }
     public Integer getId() {
         return id;
     }
