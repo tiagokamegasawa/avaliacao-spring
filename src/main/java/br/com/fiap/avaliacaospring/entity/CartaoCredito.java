@@ -28,8 +28,9 @@ public class CartaoCredito {
         this.id = id;
     }
 
-    public CartaoCredito(String ultimosDigitos) {
+    public CartaoCredito(String ultimosDigitos, Aluno aluno) {
         this.ultimosDigitos = ultimosDigitos;
+        this.aluno = aluno;
     }
 
     public Integer getId() {

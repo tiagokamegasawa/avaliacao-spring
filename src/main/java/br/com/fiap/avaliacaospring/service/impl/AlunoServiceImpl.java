@@ -7,10 +7,12 @@ import br.com.fiap.avaliacaospring.dto.ExtratoAlunoDTO;
 import br.com.fiap.avaliacaospring.entity.Aluno;
 import br.com.fiap.avaliacaospring.entity.CartaoCredito;
 import br.com.fiap.avaliacaospring.repository.AlunoRepository;
+import br.com.fiap.avaliacaospring.repository.CartaoCreditoRepository;
 import br.com.fiap.avaliacaospring.service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -22,6 +24,9 @@ public class AlunoServiceImpl implements AlunoService {
 
     @Autowired
     private AlunoRepository alunoRepository;
+
+    @Autowired
+    private CartaoCreditoRepository cartaoRepository;
 
     @Override
     public AlunoDTO create(CreateAlunoDTO createAlunoDTO) {
@@ -43,9 +48,10 @@ public class AlunoServiceImpl implements AlunoService {
     }
 
     @Override
+    @Transactional
     public AlunoDTO update(Integer id, CreateCartaoCreditoDTO createCartaoDTO) {
         Aluno entity = alunoRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        entity.getCartoes().add(new CartaoCredito(createCartaoDTO.getUltimosDigitos()));
+        cartaoRepository.save(new CartaoCredito(createCartaoDTO.getUltimosDigitos(), entity));
         return new AlunoDTO(alunoRepository.save(entity));
     }
 
@@ -60,6 +66,7 @@ public class AlunoServiceImpl implements AlunoService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public ExtratoAlunoDTO extrato(Integer id) {
         Aluno aluno = alunoRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         return new ExtratoAlunoDTO(aluno.getCartoes());
