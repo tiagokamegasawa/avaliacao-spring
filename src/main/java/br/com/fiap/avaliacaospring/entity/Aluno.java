@@ -1,6 +1,7 @@
 package br.com.fiap.avaliacaospring.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,7 +22,7 @@ public class Aluno {
     private String turma;
 
     @OneToMany(mappedBy = "aluno")
-    private List<CartaoCredito> cartoes;
+    private List<CartaoCredito> cartoes = new ArrayList<>();
 
     public String getNome() {
         return nome;

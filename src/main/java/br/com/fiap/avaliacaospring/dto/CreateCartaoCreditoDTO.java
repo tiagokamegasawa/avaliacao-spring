@@ -12,4 +12,10 @@ public class CreateCartaoCreditoDTO {
         this.ultimosDigitos = ultimosDigitos;
     }
 
+    public CreateCartaoCreditoDTO() {
+    }
+
+    public CreateCartaoCreditoDTO(String ultimosDigitos) {
+        this.ultimosDigitos = ultimosDigitos;
+    }
 }
