@@ -1,6 +1,7 @@
 package br.com.fiap.avaliacaospring.dto;
 
 import br.com.fiap.avaliacaospring.entity.Transacao;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDateTime;
 
@@ -40,6 +41,7 @@ public class TransacaoDTO {
         this.idCartaoCredito = idCartaoCredito;
     }
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     public LocalDateTime getDataHora() {
         return dataHora;
     }
