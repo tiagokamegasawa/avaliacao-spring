@@ -65,7 +65,7 @@ public class AlunoBatchConfiguration {
 
     @Bean("alunoJob")
     public Job job(JobBuilderFactory jobBuilderFactory,
-                   Step step) {
+                   @Qualifier("alunoStep") Step step) {
         return jobBuilderFactory.get("aluno_process")
                 .start(step)
                 .build();

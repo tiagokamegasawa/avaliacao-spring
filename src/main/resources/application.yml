@@ -9,3 +9,5 @@ spring:
     show-sql: true
 file:
   path: classpath:alunos_carga_inicial.txt
+  transacao:
+    path: classpath:transacoes_carga_inicial.txt

@@ -1,0 +1,27 @@
+[
+    {
+        "idAluno": 1,
+        "ultimosDigitos": "1234",
+        "transacoes": [
+                          {
+                            "dataHora": "2020-04-01 21:33:00",
+                            "descricao": "COMPRA ELO",
+                            "idCartao": 1,
+                            "valor": 55.21
+                          },
+                          {
+                            "dataHora": "2020-04-03 20:21:11",
+                            "descricao": "SUPERMERCADO",
+                            "idCartao": 1,
+                            "valor": 15.50
+                          },
+                          {
+                            "dataHora": "2020-04-04 21:12:00",
+                            "descricao": "FARMACIA",
+                            "idCartao": 1,
+                            "valor": 34.21
+                          }
+                      ]
+
+    }
+]
