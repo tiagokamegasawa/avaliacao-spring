@@ -12,7 +12,13 @@ com integração com outras empresas.
 ### Executar na IDE
 
 - A primeira execução da aplicação implicará na criação do banco de dados
-e da execução da carga inicial de cadastro de alunos, o arquivo pode ser alterado no application.yml.
+e da execução da carga inicial de cadastro de alunos e transações para teste, 
+os arquivos podem ser alterados no application.yml.
+
+- O arquivo alunos_carga_inicial.txt contém os dados iniciais para cadastro de alunos.
+
+- O arquivo transacoes_carga_inicial.txt contém transações fictícias para massa inicial de dados.
+As transações iniciais estão atreladas ao aluno de ID 1 e cartão com últimos dígitos "1234".
 
 - Executar a classe AvaliacaoSpringApplication.
 
