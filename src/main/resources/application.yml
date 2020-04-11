@@ -6,7 +6,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
-    show-sql: true
+    show-sql: false
 file:
   path: classpath:alunos_carga_inicial.txt
   transacao:
